@@ -73,6 +73,8 @@ python run_clm.py \
 
 TEST 
 
+python3 tester.py
+
 
 #########################################
      \
