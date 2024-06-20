@@ -1,0 +1,94 @@
+#######################################
+python run_clm.py \
+    --model_name_or_path openai-community/gpt2 \
+    --train_file path_to_train_file \
+    --validation_file path_to_validation_file \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 8 \
+    --do_train \
+    --do_eval \
+    --output_dir /tmp/test-clm
+
+####################################
+
+#  TRAIN Only
+python run_clm.py \
+    --model_type gpt2 \
+    --tokenizer_name openai-community/gpt2 \
+    --train_file ./data/train.txt \
+    --validation_file ./data/val.txt \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 2 \
+    --do_train \
+    --use_cpu \
+    --output_dir ./out \
+    --num_train_epochs 2 \
+    --save_on_each_node \
+    --save_strategy epoch \
+    --overwrite_output_dir \
+    --save_steps 2 \
+    --save_total_limit 2
+
+#######################################
+
+# TRAIN
+
+python run_clm.py \
+    --model_type gpt2 \
+    --tokenizer_name openai-community/gpt2 \
+    --train_file ./data/train.txt \
+    --validation_file ./data/val.txt \
+    --per_device_train_batch_size 8 \
+    --per_device_eval_batch_size 2 \
+    --do_train \
+    --do_eval \
+    --use_cpu \
+    --output_dir ./out \
+    --num_train_epochs 2 \
+    --save_on_each_node \
+    --save_strategy epoch \
+    --overwrite_output_dir \
+    --eval_strategy epoch \
+    --save_steps 2 \
+    --save_total_limit 2
+    
+
+
+
+#########################################
+
+EVAL
+python run_clm.py \
+    --model_type gpt2 \
+    --tokenizer_name openai-community/gpt2 \
+    --train_file ./data/train.txt \
+    --validation_file ./data/val.txt \
+    --per_device_eval_batch_size 2 \
+    --do_eval \
+    --use_cpu  \
+    --output_dir ./out \
+    --overwrite_output_dir
+    
+#########################################
+
+TEST 
+
+
+#########################################
+     \
+    --trust_remote_code
+
+--use_cpu \
+    --use_mps_device \
+
+
+
+
+    --overwrite_output_dir \
+    --token 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 \
+    --model_name_or_path None \
+
+    --load_best_model_at_end \
+
+
+python run_clm.py --model_type gpt2 --tokenizer_name openai-community/gpt2 \ --config_overrides="n_embd=1024,n_head=16,n_layer=48,n_positions=102" \
