@@ -22,3 +22,13 @@ prompt = "नमस्ते"
 generated_text = text_gen_pipeline(prompt, max_length=60)
 
 print(generated_text)
+
+
+
+# from sentence_transformers import SentenceTransformer
+
+# sentences = ["नमस्ते"]
+
+# model = SentenceTransformer(path)
+# embeddings = model.encode()
+# print(embeddings)
